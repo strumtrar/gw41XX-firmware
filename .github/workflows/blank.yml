@@ -35,6 +35,7 @@ jobs:
           
       - name: Install Toolchain
         run: |
+          sudo mkdir /etc/apt/source.list.d
           sudo echo "deb http://debian.pengutronix.de/debian/ stretch main contrib non-free" > /etc/apt/sources.list.d/debian.stretch.list
           apt -o="Acquire::AllowInsecureRepositories=true" update
           apt install pengutronix-archive-keyring
