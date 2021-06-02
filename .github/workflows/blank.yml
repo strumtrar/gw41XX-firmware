@@ -22,11 +22,4 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install ptxdist
         run: |
-          curl http://public.pengutronix.de/software/ptxdist/ptxdist-2021.05.0.tar.bz2 | tar jx \
-	        cd ptxdist-2021.05.0
-	        ./autogen.sh
-	        ./configure --prefix=/usr/local
-	        make -j4
-	        make install
-	        cd ..
-	        rm -rf ptxdist-2021.05.0
+          wget http://public.pengutronix.de/software/ptxdist/ptxdist-2021.05.0.tar.bz2
