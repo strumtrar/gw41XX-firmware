@@ -32,12 +32,13 @@ jobs:
           sudo make install
           cd ..
           rm -rf ptxdist-2021.05.0
-          
+
       - name: Add Pengutronix Repo
+        uses: actions/add-deb-repo@v2
         with:
           repo: deb http://debian.pengutronix.de/debian/ stretch main contrib non-free
           repo-name: pengutronix
-      
+
       - name: Install Toolchain
         run: |
           apt -o="Acquire::AllowInsecureRepositories=true" update
