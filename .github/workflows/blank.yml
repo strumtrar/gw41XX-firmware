@@ -29,6 +29,15 @@ jobs:
           ./autogen.sh
           ./configure --prefix=/usr/local
           make -j4
-          make install
+          sudo make install
           cd ..
           rm -rf ptxdist-2021.05.0
+          
+      - name: Install Toolchain
+        run: |
+          echo "deb http://debian.pengutronix.de/debian/ stretch main contrib non-free" > /etc/apt/sources.list.d/debian.stretch.list
+          apt -o="Acquire::AllowInsecureRepositories=true" update
+          apt install pengutronix-archive-keyring
+          apt install oselas.toolchain-2019.09-arm-v7a-linux-gnueabihf
+          
+          
