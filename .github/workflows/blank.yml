@@ -19,7 +19,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      
       # Runs a single command using the runners shell
       - name: Install ptxdist
         run: |
@@ -33,11 +33,12 @@ jobs:
           cd ..
           rm -rf ptxdist-2021.05.0
           
+      - name: Add Pengutronix Repo
+        with:
+          repo: deb http://debian.pengutronix.de/debian/ stretch main contrib non-free
+          repo-name: pengutronix
+      
       - name: Install Toolchain
         run: |
-          sudo echo "deb http://debian.pengutronix.de/debian/ stretch main contrib non-free" >> /etc/apt/sources.list
           apt -o="Acquire::AllowInsecureRepositories=true" update
-          apt install pengutronix-archive-keyring
           apt install oselas.toolchain-2019.09-arm-v7a-linux-gnueabihf
-          
-          
