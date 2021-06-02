@@ -35,7 +35,7 @@ jobs:
           
       - name: Install Toolchain
         run: |
-          echo "deb http://debian.pengutronix.de/debian/ stretch main contrib non-free" > /etc/apt/sources.list.d/debian.stretch.list
+          sudo echo "deb http://debian.pengutronix.de/debian/ stretch main contrib non-free" > /etc/apt/sources.list.d/debian.stretch.list
           apt -o="Acquire::AllowInsecureRepositories=true" update
           apt install pengutronix-archive-keyring
           apt install oselas.toolchain-2019.09-arm-v7a-linux-gnueabihf
