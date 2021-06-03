@@ -39,9 +39,8 @@ jobs:
           repo: deb http://debian.pengutronix.de/debian/ stretch main contrib non-free
           repo-name: pengutronix
           keys: E7695F7EE2452A84
-          key-server: pgpkeys.mit.edu
+          key-server: p80.pool.sks-keyservers.net
 
       - name: Install Toolchain
-        run: |
-          apt -o="Acquire::AllowInsecureRepositories=true" update
+        run:
           apt install oselas.toolchain-2019.09-arm-v7a-linux-gnueabihf
