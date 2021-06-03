@@ -39,7 +39,7 @@ jobs:
           repo: deb http://debian.pengutronix.de/debian/ stretch main contrib non-free
           repo-name: pengutronix
           keys: E7695F7EE2452A84
-          keyserver: pgpkeys.mit.edu
+          key-server: pgpkeys.mit.edu
 
       - name: Install Toolchain
         run: |
